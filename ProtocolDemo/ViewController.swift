@@ -1,14 +1,29 @@
-//
-//  ViewController.swift
-//  ProtocolDemo
-//
-//  Created by Mingming Wang on 25/06/2016.
-//  Copyright © 2016 Mingming Wang. All rights reserved.
-//
-
 import UIKit
+import Foundation
+protocol A {
+  var a : UIView { get }
+}
 
-class ViewController: UIViewController {
+protocol B {
+  var b : UIView { get }
+}
+
+extension A where Self: C {
+  var a : UIView {
+    return UIView()
+  }
+
+  var b: UIView {
+    return self.a
+  }
+
+  func c(){
+
+  }
+
+}
+
+class ViewController: UIViewController, A, C {
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,7 +34,6 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
-
+  
 }
 
